@@ -5,12 +5,12 @@ import sys
 print("Test case folders can be downloaded from JOI's website.")
 print("After unzipping, get the path to the specific problem's test cases.")
 print("The given path should contain directories named \"in\" and \"out\".")
-testInput = input("Test case folder:") or ""
+testInput = input("Test case folder: ") or ""
 if(testInput == ""):
     sys.exit()
 testCasePath = os.path.abspath(testInput)
 print("Give the absolute path to your solution program (C++).")
-testInput = input("Solution path:") or ""
+testInput = input("Solution path: ") or ""
 if(testInput == ""):
     sys.exit()
 solutionPath = os.path.abspath(testInput)
