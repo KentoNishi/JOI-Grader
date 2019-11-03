@@ -10,15 +10,15 @@ An automatic grader for problems from [ioi-jp.org](https://www.ioi-jp.org/).
 * g++
 
 # Setup
-``grade.py`` can be run as a normal script, or it can be configured as a task.
+``grader.py`` can be run as a normal script, or it can be configured as a task.
 
 Running the program normally:
 * Run the script using ``python``.
 
     ```bash
-    python grade.py
+    python grader.py
     ```
-    
+
 * Input your solution and test case paths.
     > The program accepts one optional command line argument, which is the path to your solution file (C++). For more information, refer to the [Editor Integration](#Editor-Integration) section.
 
