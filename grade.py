@@ -2,15 +2,11 @@ import os
 import subprocess
 import time
 import sys
-print("Test case folders can be downloaded from JOI's website.")
-print("After unzipping, get the path to the specific problem's test cases.")
-print("The given path should contain directories named \"in\" and \"out\".")
-testInput = input("Test case folder: ") or ""
-if(testInput == ""):
-    sys.exit()
-testCasePath = os.path.abspath(testInput)
-print("Give the absolute path to your solution program (C++).")
-testInput = input("Solution path: ") or ""
+if(len(sys.argv) == 2):
+    testInput = sys.argv[1]
+else:
+    print("Give the absolute path to your solution program (C++).")
+    testInput = input("Solution path: ") or ""
 if(testInput == ""):
     sys.exit()
 solutionPath = os.path.abspath(testInput)
@@ -20,6 +16,21 @@ solutionPathWSL = (os.popen("wsl eval wslpath " +
 solutionPathParent = os.path.dirname(solutionPath)
 solutionPathParentWSL = (
     os.popen("wsl eval wslpath "+solutionPathParent).read()).split()[0]
+try:
+    solutionFile = open(solutionPath, encoding="utf8").read()
+except FileNotFoundError:
+    sys.exit()
+delim = "// Test case path: ["
+if(solutionFile.index(delim) == 0):
+    testInput = solutionFile[len(delim):solutionFile.index("]")]
+else:
+    print("Test case folders can be downloaded from JOI's website.")
+    print("After unzipping, get the path to the specific problem's test cases.")
+    print("The given path should contain directories named \"in\" and \"out\".")
+    testInput = input("Test case folder: ") or ""
+if(testInput == ""):
+    sys.exit()
+testCasePath = os.path.abspath(testInput)
 
 
 def test(testPath, answerPath):
@@ -28,7 +39,7 @@ def test(testPath, answerPath):
     executableLocation = solutionPathParentWSL+"/result"
     answer = ("".join(os.popen("wsl eval \"" +
                                executableLocation+" < "+testPathWSL+"\"").read()))
-    file = open(answerPath).read()
+    file = open(answerPath, encoding="utf8").read()
     return (file == answer)
 
 
@@ -52,4 +63,3 @@ for filename in os.listdir(os.path.join(testCasePath, "in")):
           ": "+("✅" if result else "❌"))
 print("Correct: "+str(correct)+", Incorrect: "+str(incorrect))
 os.remove(solutionPathParent+"/result")
-os.system('pause')
