@@ -14,7 +14,7 @@ An automatic grader for problems from [ioi-jp.org](https://www.ioi-jp.org/).
 
 Running the program normally:
 * Run the script using ``python``.
-    ```
+    ```bash
     python grade.py
     ```
 * Input your solution and test case paths.
@@ -22,10 +22,10 @@ Running the program normally:
 
 # Editor Integration
 * Test case folders can be specified at the top of your solution in the following format in the first line of your code:
-    ```
+    ```cpp
     // Test case path: [path]
     ```
     > Path is an absolute file path to your test case folder.
 
     > Test case folders should contain directories named ``in`` and ``out``. Every ``txt`` file in one folder should be present in the other.
-* In editors such as [Visual Studio Code](https://code.visualstudio.com/), you can configure this program as a [task](https://code.visualstudio.com/Docs/editor/tasks).
+* In editors such as [Visual Studio Code](https://code.visualstudio.com/), you can configure this program as a [task](https://code.visualstudio.com/Docs/editor/tasks). An example of the task configurations can be found [here](https://github.com/KentoNishi/JOI-Solutions/tree/master/.vscode).
