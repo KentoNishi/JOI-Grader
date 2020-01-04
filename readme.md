@@ -30,4 +30,4 @@ Running the program normally:
     > Path is an absolute file path to your test case folder.
 
     > Test case folders should contain directories named ``in`` and ``out``. Every ``txt`` file in one folder should be present in the other.
-* In editors such as [Visual Studio Code](https://code.visualstudio.com/), you can configure this program as a [task](https://code.visualstudio.com/Docs/editor/tasks). An example of the task configurations can be found [here](https://github.com/KentoNishi/JOI-Solutions/tree/master/.vscode).
+* In editors such as [Visual Studio Code](https://code.visualstudio.com/), you can configure this program as a [task](https://code.visualstudio.com/Docs/editor/tasks). An example of the task configurations can be found [here](https://github.com/KentoNishi/.vscode/tree/JOI-Settings).
